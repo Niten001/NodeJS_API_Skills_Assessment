@@ -1,0 +1,8 @@
+{
+  "name": "NodeJS_API_Skills_Assessment",
+  "version": "1.0.0",
+  "description": "A simple demonstration of performing API calls and data manipulations in node.js",
+  "main": "index.js",
+  "author": "Tim Martin <timartin1069@gmail.com>",
+  "license": "MIT"
+}
