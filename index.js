@@ -12,6 +12,16 @@ const allowedCategories = [
   "music",
 ];
 
+// Get data from API
+const getData = () => new Promise(async (resolve, reject) => {
+  const response = await fetch("https://api.publicapis.org/entries");
+  if (response.status == 200) {
+    resolve(await response.json());
+  } else {
+    reject(Error(`API request failed with error code: ${response.status}`));
+  }
+});
+
 // Parse arguments from input
 let category, limit;
 try {
@@ -29,10 +39,17 @@ try {
   return;
 }
 
-// Get data from API
-
 // Wait for the API data to be returned then perform manipulations
+getData().catch((err) => {
+  console.error(err);
+}).then((data) => {
+  if (!data) {
+    return;
+  }
 
-// Manipulate API data to determine matching entries
+  // Manipulate API data to determine matching entries
 
-// Output the requested entries in the appropriate format
+  // Output the requested entries in the appropriate format
+
+  console.log(data);
+});
