@@ -48,8 +48,15 @@ getData().catch((err) => {
   }
 
   // Manipulate API data to determine matching entries
+  const validData = data.entries.filter((item) => item.Category == category).slice(0, limit).map((item) => item.API);
 
   // Output the requested entries in the appropriate format
-
-  console.log(data);
+  if (validData.length == 0) {
+    console.log("No results");
+  } else {
+    console.log({
+      count: validData.length,
+      entries: validData
+    });
+  }
 });
